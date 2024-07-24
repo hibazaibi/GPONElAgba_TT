@@ -9,7 +9,6 @@ include 'config db.php';
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 try {
-    // Fetch all references
     $stmt = $db->query("SELECT `Réf. Demande` FROM demandes");
     $references = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -18,7 +17,6 @@ try {
 
 $details = null;
 
-// Fetch details if a reference is selected
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ref_demande'])) {
     $refDemande = $_POST['ref_demande'];
     try {
@@ -36,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ref_demande'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Référence</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="mainpage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

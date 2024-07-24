@@ -7,24 +7,18 @@ include 'config db.php';
 
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['pass'];
 
-    // Query to check if the user exists
     $stmt = $db->prepare("SELECT * FROM users WHERE username = :username");
     $stmt->bindParam(':username', $username);
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // If user exists and password is correct (in plain text)
     if ($user && $password === $user['password']) {
-        // Start session and set session variables
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
-
-        // Redirect to the main page or dashboard
         header("Location: dashboard.php");
         exit();
     } else {

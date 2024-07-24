@@ -9,7 +9,6 @@ include 'config db.php';
 
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Fetch data for dashboard
 $totalRequests = $db->query("SELECT COUNT(*) as count FROM demandes")->fetch(PDO::FETCH_ASSOC)['count'];
 
 $data = [
@@ -35,7 +34,7 @@ $data = [
             <div class="card text-white bg-primary mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Total Requests</h5>
-                    <p class="card-text"><?php echo htmlspecialchars($data['total_requests'], ENT_QUOTES, 'UTF-8'); ?></p>
+                    <p class="card-text"><?php echo $data['total_requests']; ?></p>
                 </div>
             </div>
         </div>
