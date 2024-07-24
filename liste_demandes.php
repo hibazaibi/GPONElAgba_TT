@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_serial']) && is
                             <div class="input-group">
                                 <input type="text" name="new_serial_number" class="form-control" placeholder="Enter Serial Number" required>
                                 <input type="hidden" name="update_serial" value="<?php echo htmlspecialchars($request['Réf. Demande'], ENT_QUOTES, 'UTF-8'); ?>">
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn btn-primary">Ajouter</button>
                             </div>
                         </form>
                     <?php else: ?>
@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_serial']) && is
                             <div class="input-group">
                                 <input type="text" name="new_serial_number" class="form-control" value="<?php echo htmlspecialchars($request['SerialNumber'], ENT_QUOTES, 'UTF-8'); ?>" placeholder="Enter Serial Number" required>
                                 <input type="hidden" name="update_serial" value="<?php echo htmlspecialchars($request['Réf. Demande'], ENT_QUOTES, 'UTF-8'); ?>">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Mise à jour</button>
                             </div>
                         </form>
                     <?php endif; ?>

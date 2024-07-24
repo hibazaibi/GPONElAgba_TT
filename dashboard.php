@@ -33,7 +33,7 @@ $data = [
         <div class="col-md-3">
             <div class="card text-white bg-primary mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Total Requests</h5>
+                    <h5 class="card-title" >Total des demandes</h5>
                     <p class="card-text"><?php echo $data['total_requests']; ?></p>
                 </div>
             </div>
