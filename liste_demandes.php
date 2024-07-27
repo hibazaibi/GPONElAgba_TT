@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_serial']) && is
 </head>
 <body>
 <?php include "sidebar.html"; ?>
-<div class="container mt-4" style="width:900px;margin-left:300px;">
+<div class="container mt-4" style="width:1070px;margin-left:260px;">
     <h1 class="mb-4">Listes des demandes</h1>
 
     <!-- Search form -->

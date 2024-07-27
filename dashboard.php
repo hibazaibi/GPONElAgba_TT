@@ -28,7 +28,7 @@ $data = [
 <?php include "sidebar.html"; ?>
 
 <div class="container mt-4" style="margin-left: 300px;">
-    <h1 class="mb-4">Dashboard</h1>
+    <h1 class="mb-4">Tableau de bord</h1>
     <div class="row">
         <div class="col-md-3">
             <div class="card text-white bg-primary mb-3">

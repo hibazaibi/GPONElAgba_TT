@@ -16,12 +16,13 @@ try {
 }
 
 $details = null;
+$selectedRefDemande = ""; // Variable to hold the selected reference
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ref_demande'])) {
-    $refDemande = $_POST['ref_demande'];
+    $selectedRefDemande = $_POST['ref_demande'];
     try {
-        $stmt = $db->prepare("SELECT `Réf. Demande`, `Client`, `N°VoIP`, `Adresse Installation`, `FSI`, `Débit`, `NAT SERVICE` FROM demandes WHERE `Réf. Demande` = :refDemande");
-        $stmt->bindParam(':refDemande', $refDemande);
+        $stmt = $db->prepare("SELECT `Réf. Demande`, Client, `N°VoIP`, `Adresse Installation`, FSI, Débit, `NAT SERVICE` FROM demandes WHERE `Réf. Demande` = :refDemande");
+        $stmt->bindParam(':refDemande', $selectedRefDemande);
         $stmt->execute();
         $details = $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
@@ -54,15 +55,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ref_demande'])) {
                         <form method="post" action="">
                             <div class="row gx-3 mb-3">
                                 <div class="col-md-6">
-                                    <label class="small mb-1" for="ref_demande">Référence TT<span style="color: #D72A12">*</span></label>
-                                    <select name="ref_demande" id="ref_demande" class="form-control" style="width:200px;">
-                                        <option value="" selected disabled>--Choisir la référence--</option>
+                                    <label class="small mb-1" for="ref_demande">Réf. Demande<span style="color: #D72A12">*</span></label>
+                                    <input type="text" name="ref_demande" id="ref_demande" class="form-control" list="refList" placeholder="Entrez la référence TT" autocomplete="off" value="<?php echo htmlspecialchars($selectedRefDemande, ENT_QUOTES, 'UTF-8'); ?>" style="color: #333333; background-color: #ffffff; border: 1px solid #dcdcdc; border-radius: 5px; width: 200px;">
+                                    <datalist id="refList">
                                         <?php
                                         foreach ($references as $reference) {
-                                            echo '<option value="' . htmlspecialchars($reference['Réf. Demande'], ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($reference['Réf. Demande'], ENT_QUOTES, 'UTF-8') . '</option>';
+                                            echo '<option value="' . htmlspecialchars($reference['Réf. Demande'], ENT_QUOTES, 'UTF-8') . '">';
                                         }
                                         ?>
-                                    </select>
+                                    </datalist>
                                 </div>
                                 <div class="col-md-6 d-flex align-items-end">
                                     <button type="submit" class="btn btn-primary" style="background-color:#034D89;border-color:#034D89;margin-left:40px;">Afficher</button>
@@ -73,8 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ref_demande'])) {
                 </div>
             </div>
             <?php if ($details): ?>
-                <div class="col-xl-8"style="margin-left:100px;">
-                    <div class="card mb-4" >
+                <div class="col-xl-8" style="margin-left:100px;">
+                    <div class="card mb-4">
                         <div class="card-header py-3" style="background-color:#034D89">
                             <h6 style="padding-top: 9px;color: white;font-size: 15px">Détails de la Référence</h6>
                         </div>
