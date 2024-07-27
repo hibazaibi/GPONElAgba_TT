@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: dashboard.php");
         exit();
     } else {
-        $error = "Invalide username ou password";
+        $error = "Invalide username ou mot de passe";
     }
 }
 ?>
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login</title>
+    <title>Connexion</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -83,14 +83,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <i class="zmdi zmdi-eye"></i>
                     </span>
                     <input class="input100" type="password" name="pass">
-                    <span class="focus-input100" data-placeholder="Password"></span>
+                    <span class="focus-input100" data-placeholder="Mot de passe"></span>
                 </div>
 
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
                         <button class="login100-form-btn" style="background-color: #034D89;">
-                            Login
+                            Se Connecter
                         </button>
                     </div>
                 </div>
