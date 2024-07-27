@@ -16,7 +16,7 @@ try {
 }
 
 $details = null;
-$selectedRefDemande = ""; // Variable to hold the selected reference
+$selectedRefDemande = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ref_demande'])) {
     $selectedRefDemande = $_POST['ref_demande'];

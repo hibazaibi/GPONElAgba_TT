@@ -87,7 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_serial']) && is
 <div class="container mt-4" style="width:1070px;margin-left:260px;">
     <h1 class="mb-4">Listes des demandes</h1>
 
-    <!-- Search form -->
     <form method="post" action="">
         <div class="row mb-4">
             <div class="col-md-6">
@@ -101,7 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_serial']) && is
         </div>
     </form>
 
-    <!-- Table to display requests -->
     <table class="table table-striped">
         <thead>
         <tr>
